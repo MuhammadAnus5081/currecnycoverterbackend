@@ -1,17 +1,15 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-
-import currencyRoutes from './routes/currency';
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import currencyRoutes from "./routes/currency";
 
 dotenv.config();
+
 const app = express();
-const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use('/api', currencyRoutes);
+app.use("/api", currencyRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+// Instead of app.listen(), export the app for Vercel
+export default app;
